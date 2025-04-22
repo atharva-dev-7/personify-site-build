@@ -28,14 +28,7 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "Chart.js", "Supabase", "TailwindCSS"],
       githubUrl: "https://github.com",
       liveUrl: "https://example.com",
-    },
-    {
-      title: "Real Estate Listing Platform",
-      description: "Property listing website with search functionality, map integration, and user authentication.",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&h=500&q=80",
-      technologies: ["React", "Firebase", "Google Maps API", "Styled Components"],
-      githubUrl: "https://github.com",
-    },
+    }
   ];
 
   return (
@@ -72,3 +65,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
