@@ -1,39 +1,67 @@
 
 import SectionHeading from "../ui/section-heading";
-import { Monitor, Database, Code, Cloud } from "lucide-react";
+import { Monitor, Database, Cloud } from "lucide-react";
 
-const skills = [
-  { name: "JavaScript (ES6+)", icon: <Code className="w-5 h-5 text-violet-500" /> },
-  { name: "TypeScript", icon: <Code className="w-5 h-5 text-violet-500" /> },
-  { name: "React", icon: <Monitor className="w-5 h-5 text-blue-500" /> },
-  { name: "Next.js", icon: <Monitor className="w-5 h-5 text-black" /> },
-  { name: "TailwindCSS", icon: <Monitor className="w-5 h-5 text-cyan-500" /> },
-  { name: "Node.js", icon: <Database className="w-5 h-5 text-green-600" /> },
-  { name: "Express", icon: <Database className="w-5 h-5 text-yellow-500" /> },
-  { name: "MongoDB", icon: <Database className="w-5 h-5 text-emerald-600" /> },
-  { name: "PostgreSQL", icon: <Database className="w-5 h-5 text-sky-700" /> },
-  { name: "GraphQL", icon: <Cloud className="w-5 h-5 text-pink-500" /> },
-  { name: "AWS", icon: <Cloud className="w-5 h-5 text-orange-500" /> },
-  { name: "Docker", icon: <Cloud className="w-5 h-5 text-blue-400" /> },
+const skillsData = [
+  {
+    label: "Frontend",
+    icon: <Monitor className="w-6 h-6 text-blue-500" />,
+    skills: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "TailwindCSS"
+    ]
+  },
+  {
+    label: "Backend",
+    icon: <Database className="w-6 h-6 text-green-600" />,
+    skills: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "PostgreSQL",
+      "GraphQL"
+    ]
+  },
+  {
+    label: "DevOps & Cloud",
+    icon: <Cloud className="w-6 h-6 text-orange-400" />,
+    skills: [
+      "AWS",
+      "Docker"
+    ]
+  }
 ];
 
 const Skills = () => (
-  <section id="skills" className="py-16 md:py-24 bg-secondary/40">
+  <section id="skills" className="py-16 md:py-24 bg-secondary/50">
     <div className="container">
       <SectionHeading
         title="Skills & Technologies"
-        subtitle="Technologies & tools I work with"
+        subtitle="A breakdown of the tools & technologies I use"
         className="text-center"
       />
 
-      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-2xl mx-auto animate-fade-in">
-        {skills.map((skill, idx) => (
+      <div className="mt-10 grid gap-10 md:grid-cols-3 max-w-5xl mx-auto animate-fade-in">
+        {skillsData.map((category, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-3 bg-card rounded-lg shadow p-4 border border-muted hover-scale"
+            className="bg-card border border-muted rounded-lg shadow p-6 flex flex-col gap-4"
           >
-            <span>{skill.icon}</span>
-            <span className="font-medium text-muted-foreground">{skill.name}</span>
+            <div className="flex items-center gap-2 mb-2">
+              {category.icon}
+              <h3 className="text-lg font-semibold">{category.label}</h3>
+            </div>
+            <ul className="flex flex-col gap-3">
+              {category.skills.map((skill, subIdx) => (
+                <li key={subIdx} className="flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-primary" />
+                  <span className="font-medium text-muted-foreground">{skill}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
